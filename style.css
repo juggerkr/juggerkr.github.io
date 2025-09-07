@@ -29,54 +29,27 @@ a { text-decoration:none; color:inherit; transition:0.3s; }
   cursor: pointer;
 }
 
-/* Mobile view */
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 60px;
-    right: -260px; /* hidden offscreen */
-    flex-direction: column;
-    gap: 15px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: right 0.3s ease;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    right: 20px; /* slide in */
-  }
-
-  .mobile-toggle {
-    display: block; /* show button */
-  }
-
-  .cta {
-    display: none; /* optional: hide on mobile */
-  }
-}
-
 
 /* Mobile navbar */
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 60px;
-    right: -260px; /* hidden offscreen */
+    top: 60px;      /* adjust based on navbar height */
+    right: -100%;    /* hide offscreen initially */
+    width: 220px;    /* menu width */
     flex-direction: column;
     gap: 15px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: right 0.3s ease;
+    transition: right 0.3s ease; /* smooth slide in */
     z-index: 1000;
+    display: flex;   /* ensure it’s visible when active */
   }
 
   .nav-links.active {
-    right: 20px; /* slide in */
+    right: 0;        /* slide menu fully into view */
   }
 
   .mobile-toggle {
@@ -86,13 +59,7 @@ a { text-decoration:none; color:inherit; transition:0.3s; }
     font-size: 1.8rem;
     cursor: pointer;
   }
-
-  .cta {
-    display: none; /* optional: hide on mobile */
-  }
 }
-
-
 /* Hide toggle button on desktop */
 @media (min-width: 769px) {
   .mobile-toggle {
