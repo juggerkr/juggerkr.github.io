@@ -92,11 +92,11 @@ footer a { color:#0b63c7; margin:0 8px; font-weight:600; }
   gap: 8px;
 }
 
-.crypto-address {
+.crypto-row input {
   flex: 1;
   padding: 6px 10px;
-  background: #f0f0f0;
   border-radius: 6px;
+  border: 1px solid #ccc;
   font-family: monospace;
   font-size: 0.9rem;
   overflow: hidden;
