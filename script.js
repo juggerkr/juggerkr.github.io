@@ -18,6 +18,52 @@ if(mobileToggle){
   });
 }
 
+// Mobile toggle (your existing code)
+const mobileToggle = document.getElementById("mobileToggle");
+const navLinks = document.getElementById("navLinks");
+
+mobileToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+// Copy button functionality
+document.querySelectorAll(".copy-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.getAttribute("data-target");
+    const text = document.getElementById(targetId).innerText;
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(text).then(() => {
+      // Show toast popup
+      showToast("Copied!");
+    }).catch(err => {
+      showToast("Failed to copy");
+      console.error(err);
+    });
+  });
+});
+
+// Toast popup creation
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.innerText = message;
+  document.body.appendChild(toast);
+
+  // Animate and remove after 2s
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => {
+      toast.remove();
+    }, 300);
+  }, 2000);
+}
+
+
 // TABLE SORT
 const table = document.querySelector('table');
 if(table){
