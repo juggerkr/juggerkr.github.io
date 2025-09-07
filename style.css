@@ -94,6 +94,13 @@ a {
   }
 }
 
+/* Hide mobile toggle on desktop */
+@media (min-width: 769px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
 /* HERO / CONTENT */
 .hero {
   display: grid;
