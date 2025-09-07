@@ -1,421 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jugger KR — South Korea's First Jugger Team</title>
-  <meta name="description" content="JuggerKR — South Korea's first high-school Jugger team. Train weekly, contact via juggerkr@gmail.com, Instagram @juggerkr." />
-  <style>
-    :root{
-      --bg:#fbfdff;
-      --primary:#0b63c7;
-      --accent:#ff6b6b;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --glass: rgba(255,255,255,0.7);
-      --radius:14px;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg,#f7fbff 0%, #f3fff7 100%);
-      color:#0f1724;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-
-    /* Header */
-    .site-header{
-      position:sticky;top:0;z-index:40;
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
-      border-bottom:1px solid rgba(11,99,199,0.06);
-      box-shadow: 0 6px 30px rgba(11,99,199,0.03);
-    }
-    .container{max-width:var(--max-width);margin:0 auto;padding:24px}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#3aa0ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:0 6px 18px rgba(11,99,199,0.12)}
-    .brand h1{font-size:18px;margin:0}
-    nav{display:flex;gap:8px;align-items:center}
-    .nav-links{display:flex;gap:10px}
-    .nav-links a{padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--primary);font-weight:600}
-    .nav-links a.active{background:rgba(11,99,199,0.08)}
-    .cta{background:var(--primary);color:white;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600}
-    .mobile-toggle{display:none;border:0;background:transparent;padding:8px}
-
-    /* Hero */
-    .hero{padding:48px 0;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
-    .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
-    .intro h2{margin-top:0}
-    .meta{color:var(--muted);margin-bottom:12px}
-    .links-row{display:flex;gap:10px;flex-wrap:wrap}
-    .social-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;border:1px solid rgba(11,99,199,0.08);text-decoration:none;color:var(--primary);font-weight:600}
-    .small{font-size:14px;color:var(--muted)}
-
-    /* Videos */
-    .video-grid{display:grid;gap:12px}
-    .video-embed{background:#000;border-radius:10px;overflow:hidden}
-    .video-embed iframe, .video-embed video{width:100%;height:250px;border:0;display:block}
-
-    /* Roster */
-    .roster-wrap{margin-top:16px}
-    .roster-tools{display:flex;gap:8px;align-items:center;margin-bottom:12px}
-    .search{flex:1}
-    .search input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(16,24,40,0.06)}
-    .table-wrap{overflow:auto;border-radius:12px}
-    table{width:100%;border-collapse:collapse;background:white;table-layout:fixed;min-width:760px}
-    caption{font-size:1.4rem;font-weight:700;padding:12px;text-align:left}
-    th,td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(11,99,199,0.04);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    th{background:linear-gradient(90deg,var(--primary),#3aa0ff);color:white;position:sticky;top:0}
-    th.sort-asc::after{content:" ▲";font-size:0.8em}
-    th.sort-desc::after{content:" ▼";font-size:0.8em}
-    tbody tr:hover{background:linear-gradient(90deg, rgba(11,99,199,0.03), rgba(11,99,199,0.01))}
-    td.number{font-weight:700;text-align:right}
-
-    /* Map */
-    .map-embed{border-radius:12px;overflow:hidden;height:640px}
-    .map-embed iframe{width:100%;height:100%;border:0}
-
-    /* Donate */
-    .donate-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-    .kofi{display:flex;align-items:center;gap:12px}
-    .kofi a{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:linear-gradient(90deg,#ffcfdf,#ffd8b6);text-decoration:none;color:#4b2f2f;font-weight:700}
-    .crypto pre{background:linear-gradient(180deg,#ffffff,#fbfbfb);border:1px solid rgba(16,24,40,0.04);padding:10px;border-radius:8px;overflow:auto}
-    .copy-btn{padding:8px 10px;border-radius:8px;border:1px solid rgba(11,99,199,0.08);background:white;cursor:pointer}
-
-    footer{padding:28px 0;color:var(--muted)}
-    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .donate-grid{grid-template-columns:1fr}
-      .video-embed iframe{height:200px}
-    }
-    @media (max-width:700px){
-      .nav-links{display:none}
-      .mobile-toggle{display:block}
-    }
-
-    /* small utilities */
-    .muted{color:var(--muted)}
-    .pill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px}
-    [data-hidden]{display:none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jugger KR — Home</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="logo">JK</div>
-        <div>
-          <h1 style="margin:0">Jugger KR</h1>
-          <div class="small muted">South Korea's first Jugger team</div>
-        </div>
-      </div>
+<nav class="navbar">
+  <div class="logo">JuggerKR</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="roster.html">Roster</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a class="cta" href="contact.html">Support</a>
+  <button class="mobile-toggle" id="mobileToggle">☰</button>
+</nav>
 
-      <nav>
-        <button class="mobile-toggle" aria-label="Menu" id="mobileToggle">☰</button>
-        <div class="nav-links" id="navLinks">
-          <a href="#home" class="active">Home</a>
-          <a href="#roster">Roster</a>
-          <a href="#map">Map</a>
-          <a href="#donate">Donate</a>
-        </div>
-        <a class="cta" href="#donate">Support</a>
-      </nav>
+<div class="container hero">
+  <div class="card intro">
+    <h2>South Korea's first Jugger team!</h2>
+    <p class="meta">We are the first team in history to play Jugger in South Korea, made up of high schoolers trying to learn and grow the sport. We train weekly in our school's field.</p>
+    <h3>What is Jugger?</h3>
+    <p>Jugger is a 5v5 team sport blending fencing, rugby, and capture-the-flag.</p>
+    <div class="links-row">
+      <a class="social-btn" href="mailto:juggerkr@gmail.com" target="_blank">📧 Email</a>
+      <a class="social-btn" href="https://instagram.com/juggerkr" target="_blank">📸 Instagram (@juggerkr)</a>
+      <a class="social-btn" href="https://discord.gg/EjtNSCQav5" target="_blank">💬 Discord</a>
     </div>
-  </header>
+    <p class="small muted" style="margin-top:16px">We use this version of the rules: <a href="#">Rules</a></p>
+  </div>
 
-  <main class="container">
-    <!-- HERO / INTRO -->
-    <section id="home" class="hero">
-      <div class="card intro">
-        <h2>South Korea's first Jugger team!</h2>
-        <p class="meta">We are the first team in history to play Jugger in South Korea, made up of high schoolers trying to learn and grow the sport. We train weekly in our school's field.</p>
-
-        <h3>What is Jugger?</h3>
-        <p>Jugger is a 5v5 team sport blending fencing, rugby, and capture-the-flag.</p>
-
-        <div style="margin-top:12px" class="links-row">
-          <a class="social-btn" href="mailto:juggerkr@gmail.com" target="_blank" rel="noopener noreferrer">📧 Email</a>
-          <a class="social-btn" href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer">📸 Instagram (@juggerkr)</a>
-          <a class="social-btn" href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer">💬 Discord</a>
+  <aside>
+    <div class="card">
+      <h3>Quick videos</h3>
+      <div class="video-grid">
+        <div class="video-embed card">
+          <iframe src="https://www.youtube.com/watch?v=H5KGov_Sajs" title="Jugger explanation (45s)" allowfullscreen></iframe>
+          <div class="video-overlay">VIDEO</div>
         </div>
-
-        <p class="small muted" style="margin-top:16px">We use this version of the rules in our games: <a href="#" id="https://docs.google.com/document/d/1B77ufGU5-koR5nv8_aQ7Ts92PIj90dc8tjCpHA62xm8/edit?tab=t.0">Replace with rules URL</a></p>
-      </div>
-
-      <aside>
-        <div class="card">
-          <h3 style="margin-top:0">Quick videos</h3>
-          <p class="small muted">Replace the VIDEO_ID placeholders with the YouTube video IDs you want to embed.</p>
-          <div class="video-grid">
-            <div class="video-embed card">
-              <!-- Short 45-sec explanation (replace VIDEO_ID_45) -->
-              <iframe src="https://www.youtube.com/watch?v=H5KGov_Sajs" title="Jugger explanation (45s)" allowfullscreen loading="lazy" sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
-            </div>
-            <div class="video-embed card">
-              <!-- Game footage (replace VIDEO_ID_GAME) -->
-              <iframe src="https://www.youtube.com/watch?v=ahp8TG2ygOM" title="Jugger game" allowfullscreen loading="lazy" sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
-            </div>
-          </div>
-        </div>
-
-        <div style="height:18px"></div>
-        <div class="card small muted">
-          <strong>Contact</strong>
-          <div style="margin-top:8px">Email: <a href="mailto:juggerkr@gmail.com">juggerkr@gmail.com</a></div>
-          <div>Instagram: <a href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer">@juggerkr</a></div>
-          <div>Discord: <a href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer">Invite</a></div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ROSTER -->
-    <section id="roster" style="margin-top:24px">
-      <div class="card roster-wrap">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <h2 style="margin:0">⚔️ Team Roster ⚔️</h2>
-          <div class="pill small">We train weekly — join us!</div>
-        </div>
-
-        <div class="roster-tools" style="margin-top:12px">
-          <div class="search">
-            <input id="filterInput" placeholder="Search name or weapon..." />
-          </div>
-          <div class="muted small">Click column headers to sort.</div>
-        </div>
-
-        <div class="table-wrap">
-          <!-- Roster table (user-provided rows preserved) -->
-          <table id="rosterTable" aria-label="Team roster">
-            <caption>Full roster</caption>
-            <thead>
-              <tr>
-                <th data-col="0">Name</th>
-                <th data-col="1">Weapon(s)</th>
-                <th data-col="2">Number</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td title="Sung-Oh Jun">Sung-Oh Jun</td><td title="Chain">Chain</td><td class="number" title="0">0</td></tr>
-              <tr><td title="Taiyou Kim">Taiyou Kim</td><td title="-">-</td><td class="number" title="18">18</td></tr>
-              <tr><td title="Seongbin Jung">Seongbin Jung</td><td title="Shield, Staff">Shield, Staff</td><td class="number" title="5">5</td></tr>
-              <tr><td title="Minwoo Jeong">Minwoo Jeong</td><td title="Qwik">Qwik</td><td class="number" title="10">10</td></tr>
-              <tr><td title="Kwanoo Kim">Kwanoo Kim</td><td title="Staff">Staff</td><td class="number" title="14">14</td></tr>
-              <tr><td title="Pavlos Spiliopoulos">Pavlos Spiliopoulos</td><td title="Longsword">Longsword</td><td class="number" title="1">1</td></tr>
-              <tr><td title="Seonwoo Jang">Seonwoo Jang</td><td title="Chain">Chain</td><td class="number" title="88">88</td></tr>
-              <tr><td title="Jiwon Seo">Jiwon Seo</td><td title="Shield">Shield</td><td class="number" title="8">8</td></tr>
-              <tr><td title="Jeonghyuk Hwang">Jeonghyuk Hwang</td><td title="Q-Tip">Q-Tip</td><td class="number" title="33">33</td></tr>
-              <tr><td title="Kyungwon Kim">Kyungwon Kim</td><td title="Longsword">Longsword</td><td class="number" title="7">7</td></tr>
-              <tr><td title="Yunhu Lee">Yunhu Lee</td><td title="D. Shortswords">D. Shortswords</td><td class="number" title="22">22</td></tr>
-              <tr><td title="Chanwoo Bang">Chanwoo Bang</td><td title="Shield">Shield</td><td class="number" title="50">50</td></tr>
-              <tr><td title="Hongjun Cho">Hongjun Cho</td><td title="Shield">Shield</td><td class="number" title="99">99</td></tr>
-              <tr><td title="Juho Shin">Juho Shin</td><td title="Longsword">Longsword</td><td class="number" title="17">17</td></tr>
-              <tr><td title="Taeil Kong">Taeil Kong</td><td title="Longsword">Longsword</td><td class="number" title="2">2</td></tr>
-              <tr><td title="Michael Kwon">Michael Kwon</td><td title="Staff">Staff</td><td class="number" title="66">66</td></tr>
-              <tr><td title="Junwoo Yang">Junwoo Yang</td><td title="Shield">Shield</td><td class="number" title="74">74</td></tr>
-              <tr><td title="Yongkwon Hong">Yongkwon Hong</td><td title="Chain">Chain</td><td class="number" title="44">44</td></tr>
-              <tr><td title="Rinho Kim">Rinho Kim</td><td title="Q-Tip">Q-Tip</td><td class="number" title="25">25</td></tr>
-              <tr><td title="Dowon Kim">Dowon Kim</td><td title="Qwik">Qwik</td><td class="number" title="11">11</td></tr>
-              <tr><td title="Seongmin Ahn">Seongmin Ahn</td><td title="D. Shortswords">D. Shortswords</td><td class="number" title="78">78</td></tr>
-              <tr><td title="Chaebeom Lee">Chaebeom Lee</td><td title="Shield">Shield</td><td class="number" title="72">72</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAP -->
-    <section id="map" style="margin-top:24px">
-      <div class="card">
-        <h2 style="margin-top:0">Jugger in East Asia — Clubs & Pins</h2>
-        <p class="small muted">Interactive map showing other Jugger clubs across East Asia. Embedded from uMap (OpenStreetMap).</p>
-
-        <div class="map-embed" style="margin-top:12px">
-          <!-- User provided iframe preserved exactly -->
-          <iframe width="100%" height="750px" frameborder="0" allowfullscreen allow="geolocation" src="//umap.openstreetmap.de/en/map/jugger-east-asia_106537?scaleControl=false&miniMap=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=none&captionBar=false&captionMenus=false&captionControl=null"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- DONATE -->
-    <section id="donate" style="margin-top:24px">
-      <div class="card">
-        <h2 style="margin-top:0">Help support our mission!</h2>
-        <p class="muted">Jugger KR is made up of high school students only and funding is short. Help fund materials for our pompfens and essential gear. ALL PROCEEDS are used exclusively for Jugger KR and community growth. As a thank you, small benefits are being organized for Ko-fi donators.</p>
-
-        <div class="donate-grid" style="margin-top:12px">
-          <div>
-            <p><strong>Ko-fi</strong></p>
-            <div class="kofi">
-              <a href="https://ko-fi.com/juggerkr" target="_blank" rel="noopener noreferrer" aria-label="Ko-fi: JuggerKR">
-                <!-- inline Ko-fi style button -->
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                  <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" fill="#FF5A5F" />
-                  <path d="M15.4 9.3a3.1 3.1 0 1 1-1.1-2.2 3.1 3.1 0 0 1 1.1 2.2Z" fill="#fff"/>
-                </svg>
-                Donate on Ko-fi
-              </a>
-            </div>
-
-            <h3 style="margin-top:18px">Crypto</h3>
-            <div class="crypto">
-              <p class="small muted">Click a copy button to copy the address to your clipboard.</p>
-              <div style="display:grid;gap:8px;margin-top:8px">
-                <div><strong>Bitcoin (Native Segwit)</strong><div style="display:flex;gap:8px;align-items:center"><pre id="btc1" style="margin:0">bc1qr48sy2qu9h73te6fmwv4uxa4d73je3f9f6fwze</pre><button class="copy-btn" data-target="btc1">Copy</button></div></div>
-                <div><strong>Bitcoin (Taproot)</strong><div style="display:flex;gap:8px;align-items:center"><pre id="btc2" style="margin:0">bc1pntutfredak300esv2uq0f897fsre5ptexyt7pdeq7gewq5k3yr3srrxh7z</pre><button class="copy-btn" data-target="btc2">Copy</button></div></div>
-                <div><strong>EVM (Ethereum/Base/Polygon)</strong><div style="display:flex;gap:8px;align-items:center"><pre id="evm" style="margin:0">0x52c08B413E037A7c15E26AF4a9365cFc57DB7E60</pre><button class="copy-btn" data-target="evm">Copy</button></div></div>
-                <div><strong>Solana</strong><div style="display:flex;gap:8px;align-items:center"><pre id="sol" style="margin:0">5zHaPKFV1uvYKMaEHh3GpAGCKV5LAHBn4Zkf8fuWjcyA</pre><button class="copy-btn" data-target="sol">Copy</button></div></div>
-                <div><strong>Sui</strong><div style="display:flex;gap:8px;align-items:center"><pre id="sui" style="margin:0">0xc02d673d0b08d2ed004eb46902364f30c1950b32681be9e023828e840f62057a</pre><button class="copy-btn" data-target="sui">Copy</button></div></div>
-              </div>
-            </div>
-          </div>
-
-          <aside class="card small muted" style="align-self:start">
-            <h3 style="margin-top:0">Thanks!</h3>
-            <p>Thank you for supporting Jugger KR and the future of jugger!</p>
-            <p style="margin-top:8px">Questions? Email <a href="mailto:juggerkr@gmail.com">juggerkr@gmail.com</a>.</p>
-            <div style="margin-top:12px">
-              <a href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
-              <a href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer" class="social-btn">Discord</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <footer style="margin-top:28px">
-      <div class="footer-inner container">
-        <div class="muted">© <strong>Jugger KR</strong> — South Korea's first Jugger team</div>
-        <div style="display:flex;gap:10px">
-          <a class="small" href="mailto:juggerkr@gmail.com">Email</a>
-          <a class="small" href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="small" href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer">Discord</a>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Mobile nav toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-    mobileToggle.addEventListener('click', ()=>{
-      if(navLinks.style.display === 'flex') navLinks.style.display = 'none';
-      else navLinks.style.display = 'flex';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.position = 'absolute';
-      navLinks.style.right = '20px';
-      navLinks.style.top = '64px';
-      navLinks.style.background = 'white';
-      navLinks.style.padding = '12px';
-      navLinks.style.borderRadius = '10px';
-      navLinks.style.boxShadow = '0 10px 30px rgba(11,99,199,0.08)';
-    });
-
-    // Smooth scroll and active link
-    document.querySelectorAll('.nav-links a').forEach(a=>{
-      a.addEventListener('click', e=>{
-        document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active'));
-        a.classList.add('active');
-        const href = a.getAttribute('href');
-        if(href.startsWith('#')){
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
-          if(window.innerWidth < 700) navLinks.style.display='none';
-        }
-      });
-    });
-
-    // Table sorting (keeps original user logic, improved)
-    const table = document.getElementById('rosterTable');
-    const headers = table.querySelectorAll('th');
-    let sortDirection = {};
-
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const colIndex = header.getAttribute('data-col');
-        const rows = Array.from(table.querySelector('tbody').rows);
-
-        rows.sort((a, b) => {
-          let valA = a.cells[colIndex].innerText.trim().toLowerCase();
-          let valB = b.cells[colIndex].innerText.trim().toLowerCase();
-
-          if (colIndex === '2') { // numeric column
-            valA = parseInt(valA.replace(/[^0-9-]/g,'')) || 0;
-            valB = parseInt(valB.replace(/[^0-9-]/g,'')) || 0;
-          }
-
-          if (valA < valB) return sortDirection[colIndex] === 'asc' ? -1 : 1;
-          if (valA > valB) return sortDirection[colIndex] === 'asc' ? 1 : -1;
-          return 0;
-        });
-
-        rows.forEach(row => table.querySelector('tbody').appendChild(row));
-        headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
-        sortDirection[colIndex] = sortDirection[colIndex] === 'asc' ? 'desc' : 'asc';
-        header.classList.add(sortDirection[colIndex] === 'asc' ? 'sort-asc' : 'sort-desc');
-      });
-    });
-
-    // Search filter
-    const filterInput = document.getElementById('filterInput');
-    filterInput.addEventListener('input', ()=>{
-      const q = filterInput.value.trim().toLowerCase();
-      const rows = table.querySelectorAll('tbody tr');
-      rows.forEach(r=>{
-        const name = r.cells[0].innerText.toLowerCase();
-        const weapon = r.cells[1].innerText.toLowerCase();
-        r.style.display = (name.includes(q) || weapon.includes(q)) ? '' : 'none';
-      });
-    });
-
-    // Copy-to-clipboard for crypto addresses
-    document.querySelectorAll('.copy-btn').forEach(btn=>{
-      btn.addEventListener('click', async ()=>{
-        const target = btn.getAttribute('data-target');
-        const el = document.getElementById(target);
-        try{
-          await navigator.clipboard.writeText(el.innerText.trim());
-          const old = btn.innerText;
-          btn.innerText = 'Copied!';
-          setTimeout(()=> btn.innerText = old, 1400);
-        }catch(e){
-          alert('Copy failed — select and copy manually.');
-        }
-      });
-    });
-
-    // Accessibility: make sure all table cells show full text on hover (title is set already in HTML). If dynamically added rows are used, set title here.
-    (function addTitles(){
-      document.querySelectorAll('#rosterTable td').forEach(td=>{ if(!td.title) td.title = td.innerText; });
-    })();
-
-    // Helpful: keyboard shortcut: press / to focus search
-    window.addEventListener('keydown', (e)=>{
-      if(e.key === '/' && document.activeElement !== filterInput){
-        e.preventDefault();filterInput.focus();
-      }
-    });
-
-    // Small safety: if the user hasn't replaced video IDs, show a notice overlay inside the iframe placeholders
-    document.querySelectorAll('.video-embed iframe').forEach(iframe=>{
-      if(iframe.src.includes('VIDEO_ID')){
-        // append a small overlay
-        const wrap = iframe.parentElement; const note = document.createElement('div');
-        note.style.position='absolute';note.style.inset='12px';note.style.display='flex';note.style.alignItems='center';note.style.justifyContent='center';
-        note.style.pointerEvents='none';note.style.color='rgba(255,255,255,0.9)';
-        note.innerText='Replace VIDEO_ID_45 and VIDEO_ID_GAME with real YouTube IDs in the HTML.';
-        wrap.style.position='relative';wrap.appendChild(note);
-      }
-    });
-  </script>
-</body>
-</html>
+        <div class="video-embed card">
+          <iframe src="https://
