@@ -98,12 +98,6 @@ a {
   display: none;
 }
 
-/* Show toggle only on small screens */
-@media screen and (max-width: 1024px) {
-  .mobile-toggle {
-    display: block;
-  }
-}
 
 
 /* HERO / CONTENT */
@@ -336,3 +330,39 @@ footer a {
   .discord-grid { grid-template-columns: 1fr; }
   .video-embed iframe { height: 200px; }
 }
+
+
+
+/* Force-hide mobile toggle on laptops/desktops (fail-safe) */
+@media screen and (min-width: 1025px) {
+  /* target by tag, class, and id to maximize specificity */
+  button#mobileToggle,
+  #mobileToggle,
+  .mobile-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    transform: translateY(-6px) !important;
+    transition: none !important;
+    /* keep it out of flow just in case */
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Show only on smaller screens */
+@media screen and (max-width: 1024px) {
+  button#mobileToggle,
+  #mobileToggle,
+  .mobile-toggle {
+    display: inline-block !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
