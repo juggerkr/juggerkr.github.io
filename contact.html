@@ -159,25 +159,7 @@
 </footer>
 
 <!-- Scripts -->
-<script src=script.js>
-  // Copy button functionality
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const input = document.getElementById(targetId);
-      navigator.clipboard.writeText(input.value)
-        .then(() => alert('Copied!'))
-        .catch(err => alert('Failed to copy'));
-    });
-  });
-
-  // Mobile navbar toggle
-  const toggle = document.getElementById('mobileToggle');
-  const navLinks = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
