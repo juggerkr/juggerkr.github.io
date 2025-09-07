@@ -80,21 +80,20 @@ if(filterInput){
 }
 
 /*copy*/
-document.querySelectorAll(".copy-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const targetId = btn.getAttribute("data-target");
-    const input = document.getElementById(targetId);
-    input.select();
-    input.setSelectionRange(0, 99999); // For mobile
-
-    try {
-      navigator.clipboard.writeText(input.value);
-      showToast("Copied!");
-    } catch (err) {
-      showToast("Failed to copy");
-      console.error(err);
-    }
-
+document.querySelectorAll('.copy-btn').forEach(btn=>{
+btn.addEventListener('click', async ()=>{
+const target = btn.getAttribute('data-target');
+const el = document.getElementById(target);
+try{
+await navigator.clipboard.writeText(el.innerText.trim());
+const old = btn.innerText;
+btn.innerText = 'Copied!';
+setTimeout(()=> btn.innerText = old, 1400);
+}catch(e){
+alert('Copy failed — select and copy manually.');
+}
+});
+});
     // Deselect after copying
     window.getSelection().removeAllRanges();
   });
