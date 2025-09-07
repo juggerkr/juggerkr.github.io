@@ -94,12 +94,17 @@ a {
   }
 }
 
-/* Hide mobile toggle on desktop */
-@media (min-width: 769px) {
+.mobile-toggle {
+  display: none;
+}
+
+/* Show toggle only on small screens */
+@media screen and (max-width: 1024px) {
   .mobile-toggle {
-    display: none;
+    display: block;
   }
 }
+
 
 /* HERO / CONTENT */
 .hero {
