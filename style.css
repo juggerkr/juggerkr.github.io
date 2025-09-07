@@ -62,13 +62,11 @@ a { text-decoration:none; color:inherit; transition:0.3s; }
 /* Mobile navbar */
 @media (max-width: 768px) {
   .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     position: fixed;
     top: 60px;
-    right: -300px; /* hidden off-screen */
-    width: 220px;
+    right: -260px; /* hidden offscreen */
+    flex-direction: column;
+    gap: 15px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
@@ -88,7 +86,12 @@ a { text-decoration:none; color:inherit; transition:0.3s; }
     font-size: 1.8rem;
     cursor: pointer;
   }
+
+  .cta {
+    display: none; /* optional: hide on mobile */
+  }
 }
+
 
 /* Hide toggle button on desktop */
 @media (min-width: 769px) {
