@@ -10,6 +10,25 @@ mobileToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if (!toggle || !navLinks) return;
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // Optional: close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+});
+
+
 // Close menu when a link is clicked (mobile)
 navLinkItems.forEach(link => {
   link.addEventListener('click', () => {
