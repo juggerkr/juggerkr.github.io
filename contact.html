@@ -24,27 +24,70 @@
   <p>If you want to reach out or support our team, here’s how:</p>
 
   <div class="donate-grid">
+    <!-- Ko-fi Section -->
     <div class="kofi card">
       <a href="https://ko-fi.com/juggerkr" target="_blank">☕ Support via Ko-fi</a>
     </div>
+
+    <!-- Crypto Section -->
     <div class="crypto card">
-      <p>Crypto donations:</p>
-      <pre id="cryptoAddress">0xYourCryptoWalletAddressHere</pre>
-      <button class="copy-btn" data-target="cryptoAddress">Copy Address</button>
+      <h3 style="margin-top:18px">Crypto</h3>
+      <p class="small muted">Click a copy button to copy the address to your clipboard.</p>
+      <div style="display:grid;gap:8px;margin-top:8px">
+        <div>
+          <strong>Bitcoin (Native Segwit)</strong>
+          <div style="display:flex;gap:8px;align-items:center">
+            <pre id="btc1" style="margin:0">bc1qr48sy2qu9h73te6fmwv4uxa4d73je3f9f6fwze</pre>
+            <button class="copy-btn" data-target="btc1">Copy</button>
+          </div>
+        </div>
+
+        <div>
+          <strong>Bitcoin (Taproot)</strong>
+          <div style="display:flex;gap:8px;align-items:center">
+            <pre id="btc2" style="margin:0">bc1pntutfredak300esv2uq0f897fsre5ptexyt7pdeq7gewq5k3yr3srrxh7z</pre>
+            <button class="copy-btn" data-target="btc2">Copy</button>
+          </div>
+        </div>
+
+        <div>
+          <strong>EVM (Ethereum/Base/Polygon)</strong>
+          <div style="display:flex;gap:8px;align-items:center">
+            <pre id="evm" style="margin:0">0x52c08B413E037A7c15E26AF4a9365cFc57DB7E60</pre>
+            <button class="copy-btn" data-target="evm">Copy</button>
+          </div>
+        </div>
+
+        <div>
+          <strong>Solana</strong>
+          <div style="display:flex;gap:8px;align-items:center">
+            <pre id="sol" style="margin:0">5zHaPKFV1uvYKMaEHh3GpAGCKV5LAHBn4Zkf8fuWjcyA</pre>
+            <button class="copy-btn" data-target="sol">Copy</button>
+          </div>
+        </div>
+
+        <div>
+          <strong>Sui</strong>
+          <div style="display:flex;gap:8px;align-items:center">
+            <pre id="sui" style="margin:0">0xc02d673d0b08d2ed004eb46902364f30c1950b32681be9e023828e840f62057a</pre>
+            <button class="copy-btn" data-target="sui">Copy</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-  <footer style="margin-top:28px">
-    <div class="footer-inner container">
-      <div class="muted">© <strong>Jugger KR</strong> — South Korea's first Jugger team</div>
-      <div style="display:flex;gap:10px">
-        <a class="small" href="mailto:juggerkr@gmail.com">Email</a>
-        <a class="small" href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a class="small" href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer">Discord</a>
-      </div>
+<footer style="margin-top:28px">
+  <div class="footer-inner container">
+    <div class="muted">© <strong>Jugger KR</strong> — South Korea's first Jugger team</div>
+    <div style="display:flex;gap:10px">
+      <a class="small" href="mailto:juggerkr@gmail.com">Email</a>
+      <a class="small" href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="small" href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer">Discord</a>
     </div>
-  </footer>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
