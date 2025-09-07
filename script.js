@@ -19,6 +19,23 @@ navLinkItems.forEach(link => {
   });
 });
 
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+const navItems = navLinks.querySelectorAll('a');
+
+// Toggle mobile menu
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+navItems.forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+
 
   // Animate and remove after 2s
   setTimeout(() => {
