@@ -15,62 +15,6 @@ a { text-decoration:none; color:inherit; transition:0.3s; }
 .navbar .nav-links a.active, .navbar .nav-links a:hover { background: rgba(11,99,199,0.08); }
 .cta { background:#0b63c7; color:white; padding:6px 14px; border-radius:8px; font-weight:600; }
 
-/* Desktop navbar */
-.nav-links {
-  display: flex;
-  gap: 15px;
-}
-
-.mobile-toggle {
-  display: none; /* hide on desktop */
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-
-/* Mobile navbar */
-@media (max-width:768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    position: fixed;
-    top: 60px;
-    right: -100%;
-    width: 220px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    z-index: 1000;
-    display: flex;
-    transition: right 0.3s ease;
-  }
-  .nav-links.active {
-    right: 0;
-  }
-  .mobile-toggle {
-    display: block;
-  }
-}
-
-
-  .mobile-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-}
-/* Hide toggle button on desktop */
-@media (min-width: 769px) {
-  .mobile-toggle {
-    display: none;
-  }
-}
-
 
 /* HERO / CONTENT */
 .hero { display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:start; margin-bottom:50px; }
@@ -168,3 +112,59 @@ footer a { color:#0b63c7; margin:0 8px; font-weight:600; }
 
 /* RESPONSIVE */
 @media(max-width:980px){ .hero{grid-template-columns:1fr;} .donate-grid{grid-template-columns:1fr;} .video-embed iframe{height:200px;} }
+
+/* Desktop navbar */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.mobile-toggle {
+  display: none; /* hide on desktop */
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+
+/* Mobile navbar */
+@media (max-width:768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 220px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    transition: right 0.3s ease;
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}
+
+
+  .mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
+/* Hide toggle button on desktop */
+@media (min-width: 769px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
