@@ -1,55 +1,24 @@
-// MOBILE NAV
+
+
+// Mobile navbar toggle
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
-if(mobileToggle){
-  mobileToggle.addEventListener('click', ()=>{
-    if(navLinks.style.display==='flex') navLinks.style.display='none';
-    else{
-      navLinks.style.display='flex';
-      navLinks.style.flexDirection='column';
-      navLinks.style.position='absolute';
-      navLinks.style.right='20px';
-      navLinks.style.top='64px';
-      navLinks.style.background='white';
-      navLinks.style.padding='12px';
-      navLinks.style.borderRadius='10px';
-      navLinks.style.boxShadow='0 10px 30px rgba(11,99,199,0.08)';
-    }
-  });
-}
+const navLinkItems = navLinks.querySelectorAll('a');
 
-// Mobile toggle (your existing code)
-const mobileToggle = document.getElementById("mobileToggle");
-const navLinks = document.getElementById("navLinks");
-
-mobileToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+// Toggle mobile menu
+mobileToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
 });
 
-/* Default: hide nav links on small screens */
-.nav-links {
-  display: flex;
-  gap: 15px;
-}
+// Close menu when a link is clicked (mobile)
+navLinkItems.forEach(link => {
+  link.addEventListener('click', () => {
+    if (navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+    }
+  });
+});
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    background: #fff;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
 
   // Animate and remove after 2s
   setTimeout(() => {
