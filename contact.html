@@ -30,63 +30,52 @@
     </div>
 
     <!-- Crypto Section -->
-    <div class="crypto card">
-      <h3 style="margin-top:18px">Crypto</h3>
-      <p class="small muted">Click a copy button to copy the address to your clipboard.</p>
-      <div style="display:grid;gap:8px;margin-top:8px">
-        <div>
-          <strong>Bitcoin (Native Segwit)</strong>
-          <div style="display:flex;gap:8px;align-items:center">
-            <pre id="btc1" style="margin:0">bc1qr48sy2qu9h73te6fmwv4uxa4d73je3f9f6fwze</pre>
-            <button class="copy-btn" data-target="btc1">Copy</button>
-          </div>
-        </div>
+<h3 style="margin-top:18px">Crypto</h3>
+<div class="crypto card">
+  <p class="small muted">Click a copy button to copy the address to your clipboard.</p>
+  <div class="crypto-grid">
+    <div class="crypto-item">
+      <strong>Bitcoin (Native Segwit)</strong>
+      <div class="crypto-row">
+        <div class="crypto-address" id="btc1">bc1qr48sy2qu9h73te6fmwv4uxa4d73je3f9f6fwze</div>
+        <button class="copy-btn" data-target="btc1">Copy</button>
+      </div>
+    </div>
 
-        <div>
-          <strong>Bitcoin (Taproot)</strong>
-          <div style="display:flex;gap:8px;align-items:center">
-            <pre id="btc2" style="margin:0">bc1pntutfredak300esv2uq0f897fsre5ptexyt7pdeq7gewq5k3yr3srrxh7z</pre>
-            <button class="copy-btn" data-target="btc2">Copy</button>
-          </div>
-        </div>
+    <div class="crypto-item">
+      <strong>Bitcoin (Taproot)</strong>
+      <div class="crypto-row">
+        <div class="crypto-address" id="btc2">bc1pntutfredak300esv2uq0f897fsre5ptexyt7pdeq7gewq5k3yr3srrxh7z</div>
+        <button class="copy-btn" data-target="btc2">Copy</button>
+      </div>
+    </div>
 
-        <div>
-          <strong>EVM (Ethereum/Base/Polygon)</strong>
-          <div style="display:flex;gap:8px;align-items:center">
-            <pre id="evm" style="margin:0">0x52c08B413E037A7c15E26AF4a9365cFc57DB7E60</pre>
-            <button class="copy-btn" data-target="evm">Copy</button>
-          </div>
-        </div>
+    <div class="crypto-item">
+      <strong>EVM (Ethereum/Base/Polygon)</strong>
+      <div class="crypto-row">
+        <div class="crypto-address" id="evm">0x52c08B413E037A7c15E26AF4a9365cFc57DB7E60</div>
+        <button class="copy-btn" data-target="evm">Copy</button>
+      </div>
+    </div>
 
-        <div>
-          <strong>Solana</strong>
-          <div style="display:flex;gap:8px;align-items:center">
-            <pre id="sol" style="margin:0">5zHaPKFV1uvYKMaEHh3GpAGCKV5LAHBn4Zkf8fuWjcyA</pre>
-            <button class="copy-btn" data-target="sol">Copy</button>
-          </div>
-        </div>
+    <div class="crypto-item">
+      <strong>Solana</strong>
+      <div class="crypto-row">
+        <div class="crypto-address" id="sol">5zHaPKFV1uvYKMaEHh3GpAGCKV5LAHBn4Zkf8fuWjcyA</div>
+        <button class="copy-btn" data-target="sol">Copy</button>
+      </div>
+    </div>
 
-        <div>
-          <strong>Sui</strong>
-          <div style="display:flex;gap:8px;align-items:center">
-            <pre id="sui" style="margin:0">0xc02d673d0b08d2ed004eb46902364f30c1950b32681be9e023828e840f62057a</pre>
-            <button class="copy-btn" data-target="sui">Copy</button>
-          </div>
-        </div>
+    <div class="crypto-item">
+      <strong>Sui</strong>
+      <div class="crypto-row">
+        <div class="crypto-address" id="sui">0xc02d673d0b08d2ed004eb46902364f30c1950b32681be9e023828e840f62057a</div>
+        <button class="copy-btn" data-target="sui">Copy</button>
       </div>
     </div>
   </div>
 </div>
 
-<footer style="margin-top:28px">
-  <div class="footer-inner container">
-    <div class="muted">© <strong>Jugger KR</strong> — South Korea's first Jugger team</div>
-    <div style="display:flex;gap:10px">
-      <a class="small" href="mailto:juggerkr@gmail.com">Email</a>
-      <a class="small" href="https://instagram.com/juggerkr" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a class="small" href="https://discord.gg/EjtNSCQav5" target="_blank" rel="noopener noreferrer">Discord</a>
-    </div>
-  </div>
 </footer>
 
 <script src="script.js"></script>
