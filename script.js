@@ -26,6 +26,30 @@ mobileToggle.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
+/* Default: hide nav links on small screens */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
 
   // Animate and remove after 2s
   setTimeout(() => {
